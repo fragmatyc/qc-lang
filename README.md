@@ -17,15 +17,18 @@ npm install -g qc-lang
 ## Utilisation rapide
 
 ```bash
-# Créer et exécuter un projet
-cd examples/todo-api
+# Créer un nouveau projet
+mkdir mon-projet && cd mon-projet
+roule init
+
+# Exécuter le projet
 roule app.qc
 
 # Exécuter un script
 roule Clean kyadans app.qc
 
 # Ajouter une dépendance
-mets lodash dans l'app
+mets express dans l'app
 ```
 
 ## Syntaxe
@@ -94,6 +97,7 @@ Patente Publique MonApp
 
 | Commande | Description |
 |----------|-------------|
+| `roule init` | Crée un nouveau projet |
 | `roule app.qc` | Transpile et exécute |
 | `roule app.qc --no-run` | Transpile seulement |
 | `roule Clean kyadans app.qc` | Exécute un script |

@@ -1,6 +1,6 @@
 {
     "name": "qc-lang",
-    "version": "1.0.1",
+    "version": "1.2.0",
     "description": "QcLang - Le langage de programmation québécois 🍁 Transpilateur et outils CLI",
     "type": "module",
     "bin": {

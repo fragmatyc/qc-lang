@@ -1,6 +1,6 @@
 # QcLang - Documentation Technique
 
-**Version 1.1.0** | Le langage de programmation québécois 🍁
+**Version 1.2.0** | Le langage de programmation québécois 🍁
 
 ---
 
@@ -284,6 +284,21 @@ Patente Publique MonApplication
 ---
 
 ## CLI Tools
+
+### roule init - Créer un projet
+
+```bash
+# Dans un nouveau dossier
+mkdir mon-projet && cd mon-projet
+roule init
+```
+
+**Fichiers créés:**
+- `app.qc` - Configuration du projet
+- `src/index.qc` - Point d'entrée
+- `.gitignore` - Fichiers à ignorer
+
+---
 
 ### roule - Transpiler & Runner
 

@@ -2,6 +2,7 @@
 /**
  * roule - QcLang Transpiler & Runner
  * Usage: roule app.qc
+ *        roule init
  *        roule ScriptName kyadans app.qc
  */
 
@@ -17,9 +18,10 @@ const __dirname = dirname(__filename);
 
 function printHelp() {
     console.log(`
-🍁 roule v1.1.0 - QcLang CLI
+🍁 roule v1.2.0 - QcLang CLI
 
 Usage: 
+  roule init                        Crée un nouveau projet QcLang
   roule <app.qc>                    Transpile et exécute le projet
   roule <Script> kyadans <app.qc>   Exécute un script défini dans app.qc
 
@@ -28,12 +30,100 @@ Options:
   --no-run             Ne pas exécuter après transpilation
 
 Exemples:
+  roule init                      Crée app.qc et src/index.qc
   roule app.qc                    Transpile et exécute
   roule app.qc --no-run           Transpile seulement
   roule Clean kyadans app.qc      Exécute le script "Clean"
 `);
 }
 
+// ============== INIT COMMAND ==============
+function initProject() {
+    const cwd = process.cwd();
+    const folderName = basename(cwd);
+    const projectName = folderName.toLowerCase().replace(/[^a-z0-9-]/g, '-');
+
+    console.log('🍁 roule init - Création d\'un nouveau projet QcLang\n');
+
+    // Check if app.qc already exists
+    if (existsSync(join(cwd, 'app.qc'))) {
+        console.error('❌ Un fichier app.qc existe déjà dans ce dossier!');
+        process.exit(1);
+    }
+
+    // Create app.qc
+    const appQcContent = `// app.qc - Configuration du projet ${projectName}
+Patente Publique ${toPascalCase(projectName)}
+    Faik'Nom C't'un Tex = "${projectName}"
+    Faik'Version C't'un Tex = "1.0.0"
+    Faik'Auteur C't'un Tex = ""
+    Faik'Description C't'un Tex = ""
+    Faik'License C't'un Tex = "ISC"
+    Faik'Entrée C't'un Tex = "src/index.qc"
+
+    Faik'Dependances C't'un TabloD'Dependance
+
+    Faik'Scripts C't'un TabloD'Script
+        Faik'Clean C't'une Fonction
+        Piafait
+            SupprimeDossier dist
+`;
+
+    writeFileSync(join(cwd, 'app.qc'), appQcContent, 'utf-8');
+    console.log('   ✅ Créé: app.qc');
+
+    // Create src directory
+    const srcDir = join(cwd, 'src');
+    if (!existsSync(srcDir)) {
+        mkdirSync(srcDir, { recursive: true });
+    }
+
+    // Create src/index.qc
+    const indexQcContent = `// index.qc - Point d'entrée du projet
+// Créé par roule init
+
+Faik'message C't'un Tex = "Bienvenue dans QcLang! 🍁"
+Log(message)
+`;
+
+    writeFileSync(join(srcDir, 'index.qc'), indexQcContent, 'utf-8');
+    console.log('   ✅ Créé: src/index.qc');
+
+    // Create .gitignore
+    const gitignoreContent = `# QcLang
+dist/
+node_modules/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+`;
+
+    writeFileSync(join(cwd, '.gitignore'), gitignoreContent, 'utf-8');
+    console.log('   ✅ Créé: .gitignore');
+
+    console.log(`
+✅ Projet "${projectName}" créé!
+
+Prochaines étapes:
+  1. Ajouter des dépendances:  mets express dans l'app
+  2. Éditer src/index.qc
+  3. Exécuter:                 roule app.qc
+`);
+}
+
+function toPascalCase(str) {
+    return str
+        .split('-')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join('');
+}
+
+// ============== SCRIPTS ==============
 function parseScripts(source) {
     const scripts = {};
     const lines = source.split('\n');
@@ -113,6 +203,7 @@ function runScript(scriptName, appQcPath) {
     console.log(`\n✅ Script "${scriptName}" terminé`);
 }
 
+// ============== TRANSPILE ==============
 function transpileFile(inputPath, outputPath) {
     const jsFilename = basename(inputPath, '.qc') + '.js';
     if (PRE_GENERATED[jsFilename]) {
@@ -151,19 +242,29 @@ function runApp(distDir, entryFile) {
     process.on('SIGINT', () => { child.kill('SIGINT'); process.exit(0); });
 }
 
+// ============== MAIN ==============
 function main() {
     const args = process.argv.slice(2);
+
     if (args.length === 0 || args.includes('--help') || args.includes('-h')) {
         printHelp();
         process.exit(0);
     }
 
+    // Handle init command
+    if (args[0] === 'init') {
+        initProject();
+        return;
+    }
+
+    // Handle script execution
     const kyadansIndex = args.indexOf('kyadans');
     if (kyadansIndex !== -1 && kyadansIndex > 0) {
         runScript(args[kyadansIndex - 1], args[kyadansIndex + 1]);
         return;
     }
 
+    // Handle transpile & run
     let appQcPath = null, shouldRun = true;
     for (const arg of args) {
         if (arg === '--no-run') shouldRun = false;
@@ -177,7 +278,7 @@ function main() {
     const srcDir = join(projectDir, 'src');
     const distDir = join(projectDir, 'dist');
 
-    console.log('🍁 roule v1.1.0 - QcLang CLI\n');
+    console.log('🍁 roule v1.2.0 - QcLang CLI\n');
     console.log('📋 Étape 1: Parse app.qc...');
 
     if (!existsSync(resolvedAppQc)) { console.error(`❌ Fichier non trouvé: ${resolvedAppQc}`); process.exit(1); }
