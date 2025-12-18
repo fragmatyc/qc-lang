@@ -78,7 +78,7 @@ Patente Publique TodoController
             Faik'erreur C't'un Objet = { erreur: "Todo pas trouvé, désolé!" }
             Call json Su Call status Su res PisPawceZy 404 PisPawceZy erreur
         OuSinon
-            Call json Su res PisPawceZy todoComplete
+            Call json Su res PisPawceZy todoCompletep
 
     // DELETE /todos/:id - Supprimer un todo
     Faik'handleSupprimer C't'une Fonction

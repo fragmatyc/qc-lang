@@ -12,10 +12,6 @@ QcLang est un langage transpilé vers JavaScript avec une syntaxe inspirée du f
 ```bash
 # Installer globalement depuis npm
 npm install -g qc-lang
-
-# OU cloner le dépôt
-git clone https://github.com/fragmatyc/qc-lang.git
-cd qc-lang && npm link
 ```
 
 ## Utilisation rapide
@@ -103,21 +99,47 @@ Patente Publique MonApp
 | `roule Clean kyadans app.qc` | Exécute un script |
 | `mets express dans l'app` | Ajoute une dépendance |
 
-## Extension VS Code
+## Extension VS Code / Antigravity
 
-L'extension de coloration syntaxique est dans `qclang-syntax/`.
+L'extension offre:
+- ✅ **Coloration syntaxique** pour tous les mots-clés
+- ✅ **Autocomplétion** intelligente
+- ✅ **Snippets** (`faik`, `fonction`, `patente`, `app`, etc.)
+- ✅ **Validation syntaxique** en temps réel
+- ✅ **Documentation hover** sur les mots-clés
 
-Installer manuellement:
+### Installation manuelle
+
 ```bash
-cp -r qclang-syntax ~/.antigravity/extensions/qclang-1.0.0
-# ou pour VS Code:
-cp -r qclang-syntax ~/.vscode/extensions/qclang-1.0.0
+# Pour Antigravity
+cp -r qclang-syntax ~/.antigravity/extensions/qclang-1.1.0
+
+# Pour VS Code
+cp -r qclang-syntax ~/.vscode/extensions/qclang-1.1.0
 ```
 
 ## Documentation
 
 Voir [documentation/qclang-reference.md](documentation/qclang-reference.md) pour la référence complète.
 
+## Structure du dépôt
+
+```
+qc-lang/
+├── bin/                 # CLI entry points
+├── lib/                 # Core library
+├── examples/            # Projets exemples
+│   └── todo-api/        # API Todo en QcLang
+├── qclang-syntax/       # Extension VS Code
+├── documentation/       # Documentation technique
+└── README.md
+```
+
 ## Licence
 
 ISC © sylvain.cloutier@ezoqc.com
+
+---
+
+**GitHub**: [github.com/fragmatyc/qc-lang](https://github.com/fragmatyc/qc-lang)  
+**npm**: [npmjs.com/package/qc-lang](https://www.npmjs.com/package/qc-lang)

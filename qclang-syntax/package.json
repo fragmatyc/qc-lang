@@ -1,15 +1,25 @@
 {
     "name": "qclang",
     "displayName": "QcLang",
-    "description": "Syntax highlighting for QcLang - Le langage de programmation québécois",
-    "version": "1.0.0",
-    "publisher": "ezoqc",
+    "description": "Support complet pour QcLang - Le langage de programmation québécois 🍁",
+    "version": "1.1.0",
+    "publisher": "fragmatyc",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/fragmatyc/qc-lang"
+    },
     "engines": {
-        "vscode": "^1.60.0"
+        "vscode": "^1.75.0"
     },
     "categories": [
-        "Programming Languages"
+        "Programming Languages",
+        "Snippets",
+        "Linters"
     ],
+    "activationEvents": [
+        "onLanguage:qclang"
+    ],
+    "main": "./out/extension.js",
     "contributes": {
         "languages": [
             {
@@ -30,6 +40,22 @@
                 "scopeName": "source.qclang",
                 "path": "./syntaxes/qclang.tmLanguage.json"
             }
+        ],
+        "snippets": [
+            {
+                "language": "qclang",
+                "path": "./snippets/qclang.json"
+            }
         ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./"
+    },
+    "devDependencies": {
+        "@types/node": "^18.0.0",
+        "@types/vscode": "^1.75.0",
+        "typescript": "^5.0.0"
     }
 }

@@ -1,6 +1,6 @@
 # QcLang - Documentation Technique
 
-**Version 1.0.0** | Le langage de programmation québécois 🍁
+**Version 1.1.0** | Le langage de programmation québécois 🍁
 
 ---
 
@@ -386,10 +386,37 @@ Log("Serveur démarré sur le port " + PORT)
 
 ## Ressources
 
+- **Package npm**: `npm install -g qc-lang`
+- **GitHub**: [github.com/fragmatyc/qc-lang](https://github.com/fragmatyc/qc-lang)
 - **Extension VS Code**: `qclang-syntax/`
-- **Transpilateur**: `tools/roule/`
-- **Package Manager**: `tools/mets/`
 
 ---
 
-*Documentation générée pour QcLang v1.0.0* 🍁
+## Extension VS Code
+
+L'extension QcLang offre:
+
+| Fonctionnalité | Description |
+|----------------|-------------|
+| Coloration syntaxique | Tous les mots-clés colorés |
+| Autocomplétion | Suggestions intelligentes |
+| Snippets | `faik`, `fonction`, `patente`, `app` |
+| Validation | Erreurs affichées en temps réel |
+| Hover | Documentation sur les mots-clés |
+
+### Snippets disponibles
+
+| Préfixe | Description |
+|---------|-------------|
+| `faik` | Déclaration de variable |
+| `fonction` | Fonction simple |
+| `fonctionp` | Fonction avec paramètres |
+| `patente` | Classe complète |
+| `app` | Template app.qc |
+| `si` | Condition if |
+| `loop` | Boucle for-each |
+| `call` | Appel de méthode |
+
+---
+
+*Documentation générée pour QcLang v1.1.0* 🍁

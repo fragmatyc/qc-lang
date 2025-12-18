@@ -1,0 +1,137 @@
+{
+    "Déclaration de variable": {
+        "prefix": "faik",
+        "body": [
+            "Faik'${1:nom} C't'un ${2|Chif,Tex,Boule,Objet|} = ${3:valeur}"
+        ],
+        "description": "Déclare une variable"
+    },
+    "Fonction simple": {
+        "prefix": "fonction",
+        "body": [
+            "Faik'${1:nom} C't'une Fonction",
+            "Piafait",
+            "    ${0}"
+        ],
+        "description": "Déclare une fonction simple"
+    },
+    "Fonction avec paramètres": {
+        "prefix": "fonctionp",
+        "body": [
+            "Faik'${1:nom} C't'une Fonction",
+            "    Fotuïpawce ${2:param}, C't'un ${3:Type},",
+            "Piafait",
+            "    ${0}"
+        ],
+        "description": "Déclare une fonction avec paramètres"
+    },
+    "Fonction avec retour": {
+        "prefix": "fonctionr",
+        "body": [
+            "Faik'${1:nom} C't'une Fonction Qyartourne un ${2:Type}",
+            "    Fotuïpawce ${3:param}, C't'un ${4:Type},",
+            "Piafait",
+            "    Artourne ${0}"
+        ],
+        "description": "Déclare une fonction avec type de retour"
+    },
+    "Classe": {
+        "prefix": "patente",
+        "body": [
+            "Patente Publique ${1:NomClasse}",
+            "    Faik'${2:propriete} C't'un ${3:Type}",
+            "",
+            "    Faik'${4:methode} C't'une Fonction",
+            "    Piafait",
+            "        ${0}",
+            "",
+            "Rends ${1} DispoPartout"
+        ],
+        "description": "Déclare une classe complète"
+    },
+    "Condition Si": {
+        "prefix": "si",
+        "body": [
+            "Si ${1:condition}",
+            "    ${0}"
+        ],
+        "description": "Condition if"
+    },
+    "Condition Si/Sinon": {
+        "prefix": "sisinon",
+        "body": [
+            "Si ${1:condition}",
+            "    ${2}",
+            "OuSinon",
+            "    ${0}"
+        ],
+        "description": "Condition if/else"
+    },
+    "Boucle While": {
+        "prefix": "tank",
+        "body": [
+            "Tank'${1:condition}",
+            "    ${0}"
+        ],
+        "description": "Boucle while"
+    },
+    "Boucle For-Each": {
+        "prefix": "loop",
+        "body": [
+            "LoopSu'${1:array} Dans ${2:item} Piafait",
+            "    ${0}"
+        ],
+        "description": "Boucle for-each"
+    },
+    "Import": {
+        "prefix": "prend",
+        "body": [
+            "Prend ${1:module} De \"${2:path}\""
+        ],
+        "description": "Import un module"
+    },
+    "Export": {
+        "prefix": "rends",
+        "body": [
+            "Rends ${1:nom} DispoPartout"
+        ],
+        "description": "Export un élément"
+    },
+    "Appel de méthode": {
+        "prefix": "call",
+        "body": [
+            "Call ${1:methode} Su ${2:objet} PisPawceZy ${0}"
+        ],
+        "description": "Appelle une méthode sur un objet"
+    },
+    "app.qc template": {
+        "prefix": "app",
+        "body": [
+            "Patente Publique ${1:MonApp}",
+            "    Faik'Nom C't'un Tex = \"${2:mon-app}\"",
+            "    Faik'Version C't'un Tex = \"1.0.0\"",
+            "    Faik'Auteur C't'un Tex = \"${3:auteur@email.com}\"",
+            "    Faik'Description C't'un Tex = \"${4:Description}\"",
+            "    Faik'License C't'un Tex = \"ISC\"",
+            "    Faik'Entrée C't'un Tex = \"src/index.qc\"",
+            "",
+            "    Faik'Dependances C't'un TabloD'Dependance",
+            "        BzoinD'${5:express} v${6:4.18.2}",
+            "",
+            "    Faik'Scripts C't'un TabloD'Script",
+            "        Faik'Clean C't'une Fonction",
+            "        Piafait",
+            "            SupprimeDossier dist"
+        ],
+        "description": "Template complet pour app.qc"
+    },
+    "Script Clean": {
+        "prefix": "clean",
+        "body": [
+            "Faik'Clean C't'une Fonction",
+            "Piafait",
+            "    SupprimeDossier ${1:dist}"
+        ],
+        "description": "Script de nettoyage"
+    }
+}
