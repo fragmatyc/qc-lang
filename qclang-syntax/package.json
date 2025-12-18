@@ -1,0 +1,35 @@
+{
+    "name": "qclang",
+    "displayName": "QcLang",
+    "description": "Syntax highlighting for QcLang - Le langage de programmation québécois",
+    "version": "1.0.0",
+    "publisher": "ezoqc",
+    "engines": {
+        "vscode": "^1.60.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "qclang",
+                "aliases": [
+                    "QcLang",
+                    "qclang"
+                ],
+                "extensions": [
+                    ".qc"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "qclang",
+                "scopeName": "source.qclang",
+                "path": "./syntaxes/qclang.tmLanguage.json"
+            }
+        ]
+    }
+}

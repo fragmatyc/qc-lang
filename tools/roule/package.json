@@ -1,0 +1,21 @@
+{
+    "name": "roule",
+    "version": "1.0.0",
+    "description": "QcLang transpiler et runner - Le langage de programmation québécois 🍁",
+    "main": "src/index.js",
+    "bin": {
+        "roule": "./src/index.js"
+    },
+    "type": "module",
+    "scripts": {
+        "test": "node src/index.js ../todo-api/app.qc"
+    },
+    "keywords": [
+        "qclang",
+        "transpiler",
+        "quebec",
+        "french"
+    ],
+    "author": "sylvain.cloutier@ezoqc.com",
+    "license": "ISC"
+}

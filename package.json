@@ -1,0 +1,40 @@
+{
+    "name": "qc-lang",
+    "version": "1.0.1",
+    "description": "QcLang - Le langage de programmation québécois 🍁 Transpilateur et outils CLI",
+    "type": "module",
+    "bin": {
+        "roule": "./bin/roule.js",
+        "mets": "./bin/mets.js"
+    },
+    "main": "./lib/index.js",
+    "files": [
+        "bin/",
+        "lib/",
+        "README.md"
+    ],
+    "scripts": {
+        "test": "node bin/roule.js --help && node bin/mets.js --help"
+    },
+    "keywords": [
+        "qclang",
+        "transpiler",
+        "quebec",
+        "french",
+        "javascript",
+        "programming-language"
+    ],
+    "author": "sylvain.cloutier@ezoqc.com",
+    "license": "ISC",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fragmatyc/qc-lang.git"
+    },
+    "bugs": {
+        "url": "https://github.com/fragmatyc/qc-lang/issues"
+    },
+    "homepage": "https://github.com/fragmatyc/qc-lang#readme",
+    "engines": {
+        "node": ">=18.0.0"
+    }
+}

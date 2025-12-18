@@ -1,0 +1,178 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "QcLang",
+    "scopeName": "source.qclang",
+    "patterns": [
+        {
+            "include": "#comments"
+        },
+        {
+            "include": "#strings"
+        },
+        {
+            "include": "#numbers"
+        },
+        {
+            "include": "#keywords"
+        },
+        {
+            "include": "#types"
+        },
+        {
+            "include": "#functions"
+        },
+        {
+            "include": "#classes"
+        },
+        {
+            "include": "#variables"
+        },
+        {
+            "include": "#operators"
+        },
+        {
+            "include": "#constants"
+        }
+    ],
+    "repository": {
+        "comments": {
+            "patterns": [
+                {
+                    "name": "comment.line.double-slash.qclang",
+                    "match": "//.*$"
+                },
+                {
+                    "name": "comment.block.qclang",
+                    "begin": "/\\*",
+                    "end": "\\*/"
+                }
+            ]
+        },
+        "strings": {
+            "patterns": [
+                {
+                    "name": "string.quoted.double.qclang",
+                    "begin": "\"",
+                    "end": "\"",
+                    "patterns": [
+                        {
+                            "name": "constant.character.escape.qclang",
+                            "match": "\\\\."
+                        }
+                    ]
+                },
+                {
+                    "name": "string.quoted.single.qclang",
+                    "begin": "'",
+                    "end": "'",
+                    "patterns": [
+                        {
+                            "name": "constant.character.escape.qclang",
+                            "match": "\\\\."
+                        }
+                    ]
+                }
+            ]
+        },
+        "numbers": {
+            "patterns": [
+                {
+                    "name": "constant.numeric.qclang",
+                    "match": "\\b[0-9]+(\\.[0-9]+)?\\b"
+                }
+            ]
+        },
+        "keywords": {
+            "patterns": [
+                {
+                    "name": "keyword.control.qclang",
+                    "match": "\\b(Si|PisSi|OuSinon|Oussinon|Tank'|Arcommence|Fois|Ça|LoopSu'|Dans|Pifait|Piafait|Fait|Jusqu'à|QuiPartD')\\b"
+                },
+                {
+                    "name": "keyword.control.return.qclang",
+                    "match": "\\b(Artourne)\\b"
+                },
+                {
+                    "name": "keyword.declaration.qclang",
+                    "match": "\\b(Faik'|Fotuïpawce|Qyartourne)\\b"
+                },
+                {
+                    "name": "keyword.other.import.qclang",
+                    "match": "\\b(Prend|De|PisSacreLéDans|Rends|DispoPartout)\\b"
+                },
+                {
+                    "name": "keyword.other.class.qclang",
+                    "match": "\\b(Patente|Publique|Crée|Call|Su|PisPawceZy|ÀL')\\b"
+                },
+                {
+                    "name": "keyword.other.package.qclang",
+                    "match": "\\b(BzoinD'|mets|dans|l'app|kyadans)\\b"
+                },
+                {
+                    "name": "keyword.other.script.qclang",
+                    "match": "\\b(SupprimeDossier|CreeDossier|Execute)\\b"
+                }
+            ]
+        },
+        "types": {
+            "patterns": [
+                {
+                    "name": "support.type.qclang",
+                    "match": "\\b(C't'un|C't'une|Chif|Tex|Boule|Tablo|TabloD'Chif|TabloD'Tex|TabloD'Boule|TabloD'Todo|Date|Objet|Fonction|TabloD'Dependance|TabloD'Script|TabloD')\\b"
+                }
+            ]
+        },
+        "functions": {
+            "patterns": [
+                {
+                    "name": "entity.name.function.qclang",
+                    "match": "(?<=Faik')[A-Za-z_][A-Za-z0-9_]*(?=\\s+C't'une\\s+Fonction)"
+                },
+                {
+                    "name": "support.function.builtin.qclang",
+                    "match": "\\b(Log|CombienD'annéesDepuisAujourd'hui)\\b"
+                }
+            ]
+        },
+        "classes": {
+            "patterns": [
+                {
+                    "name": "entity.name.class.qclang",
+                    "match": "(?<=Patente\\s+(Publique\\s+)?)[A-Za-z_][A-Za-z0-9_]*"
+                }
+            ]
+        },
+        "variables": {
+            "patterns": [
+                {
+                    "name": "variable.other.qclang",
+                    "match": "(?<=Faik')[A-Za-z_][A-Za-z0-9_]*"
+                }
+            ]
+        },
+        "operators": {
+            "patterns": [
+                {
+                    "name": "keyword.operator.qclang",
+                    "match": "(==|!=|<=|>=|<|>|\\+\\+|--|\\+|-|\\*|/|%|&&|\\|\\||!|=)"
+                }
+            ]
+        },
+        "constants": {
+            "patterns": [
+                {
+                    "name": "constant.language.boolean.true.qclang",
+                    "match": "\\b(ouin)\\b"
+                },
+                {
+                    "name": "constant.language.boolean.false.qclang",
+                    "match": "\\b(tétumalade)\\b"
+                },
+                {
+                    "name": "constant.language.null.qclang",
+                    "match": "\\b(ardjien|Ardjien)\\b"
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "name": "qclang-transpiler",
+    "version": "1.0.0",
+    "description": "Transpilateur QcLang vers JavaScript - Le langage de programmation québécois 🍁",
+    "main": "src/index.js",
+    "bin": {
+        "roule": "./src/cli.js"
+    },
+    "scripts": {
+        "roule": "node src/cli.js"
+    },
+    "keywords": [
+        "qclang",
+        "transpiler",
+        "quebec",
+        "french",
+        "javascript"
+    ],
+    "author": "sylvain.cloutier@ezoqc.com",
+    "license": "ISC",
+    "type": "module"
+}
