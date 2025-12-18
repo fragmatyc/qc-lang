@@ -1,4 +1,4 @@
-# QcLang 🍁
+# QcLang ⚜️
 
 [![npm version](https://badge.fury.io/js/qc-lang.svg)](https://www.npmjs.com/package/qc-lang)
 [![GitHub](https://img.shields.io/github/license/fragmatyc/qc-lang)](https://github.com/fragmatyc/qc-lang)
