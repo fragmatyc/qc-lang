@@ -1,6 +1,6 @@
 # QcLang - Documentation Technique
 
-**Version 1.2.0** | Le langage de programmation québécois 🍁
+**Version 1.3.0** | Le langage de programmation québécois 🍁
 
 ---
 

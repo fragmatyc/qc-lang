@@ -1,0 +1,42 @@
+﻿import express from "express";
+
+// index.qc - Todo API simple
+
+const app = express();
+const todos = [];
+const nextId = 1;
+
+// Middleware JSON
+const jsonMiddleware = express.json();
+app.use(jsonMiddleware);
+
+// GET /todos
+getTodos(req, res) {
+    res.json(todos);
+
+app.get("/todos", getTodos);
+
+// POST /todos
+createTodo(req, res) {
+    const todo = { id: nextId, titre: req.body.titre, complete: false };
+    nextId = nextId + 1;
+    todos.push(todo);
+    const resStatus = res.status(201);
+    resStatus.json(todo);
+
+app.post("/todos", createTodo);
+
+// GET /
+getHome(req, res) {
+    const msg = { message: "Todo API QcLang!", version: "1.0.0" };
+    res.json(msg);
+
+app.get("/", getHome);
+
+// Start
+const PORT = 3000;
+onStart() {
+    console.log("Todo API roule sur port " + PORT);
+
+app.listen(PORT, onStart);
+

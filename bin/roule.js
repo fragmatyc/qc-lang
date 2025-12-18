@@ -11,7 +11,7 @@ import { dirname, basename, join, resolve, relative } from 'path';
 import { fileURLToPath } from 'url';
 import { spawn, execSync } from 'child_process';
 import { parseAppQc, generatePackageJson } from '../lib/appParser.js';
-import { PRE_GENERATED } from '../lib/templates.js';
+import { transpileQcLang } from '../lib/transpiler.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -205,14 +205,18 @@ function runScript(scriptName, appQcPath) {
 
 // ============== TRANSPILE ==============
 function transpileFile(inputPath, outputPath) {
-    const jsFilename = basename(inputPath, '.qc') + '.js';
-    if (PRE_GENERATED[jsFilename]) {
+    try {
+        const source = readFileSync(inputPath, 'utf-8');
+        const js = transpileQcLang(source, basename(inputPath));
+
         const outputDir = dirname(outputPath);
         if (!existsSync(outputDir)) mkdirSync(outputDir, { recursive: true });
-        writeFileSync(outputPath, PRE_GENERATED[jsFilename], 'utf-8');
+        writeFileSync(outputPath, js, 'utf-8');
         return true;
+    } catch (error) {
+        console.error(`   ❌ Erreur transpilation: ${error.message}`);
+        return false;
     }
-    return false;
 }
 
 function transpileDirectory(srcDir, distDir) {
