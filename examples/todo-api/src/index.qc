@@ -24,7 +24,7 @@ Faik'createTodo C't'une Fonction
     Fotuïpawce res, C't'un Response,
 Piafait
     Faik'todo C't'un Objet = { id: nextId, titre: req.body.titre, complete: tétumalade }
-    Faik'nextId = nextId + 1
+    Faik'nextId C't'un Chif = nextId + 1
     Call push Su todos PisPawceZy todo
     Faik'resStatus C't'un Response = Call status Su res PisPawceZy 201
     Call json Su resStatus PisPawceZy todo
